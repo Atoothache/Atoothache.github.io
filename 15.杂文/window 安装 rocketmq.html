@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>window 安装 rocketmq | 一颗牙疼</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/assets/css/0.styles.9825735b.css" as="style"><link rel="preload" href="/assets/js/app.d4ad695d.js" as="script"><link rel="preload" href="/assets/js/2.fe0fd2e3.js" as="script"><link rel="preload" href="/assets/js/69.b19f42cd.js" as="script"><link rel="prefetch" href="/assets/js/10.65e5fb23.js"><link rel="prefetch" href="/assets/js/11.9319467c.js"><link rel="prefetch" href="/assets/js/12.8eb490f4.js"><link rel="prefetch" href="/assets/js/13.6231cde8.js"><link rel="prefetch" href="/assets/js/14.7a16db7b.js"><link rel="prefetch" href="/assets/js/15.931cb17b.js"><link rel="prefetch" href="/assets/js/16.8b01fcf0.js"><link rel="prefetch" href="/assets/js/17.a010ab74.js"><link rel="prefetch" href="/assets/js/18.313924cf.js"><link rel="prefetch" href="/assets/js/19.09b089e0.js"><link rel="prefetch" href="/assets/js/20.1b3ddb79.js"><link rel="prefetch" href="/assets/js/21.952af6f8.js"><link rel="prefetch" href="/assets/js/22.8ac11a37.js"><link rel="prefetch" href="/assets/js/23.3973e8d3.js"><link rel="prefetch" href="/assets/js/24.8b531c6d.js"><link rel="prefetch" href="/assets/js/25.4d8e9eba.js"><link rel="prefetch" href="/assets/js/26.5b30a6be.js"><link rel="prefetch" href="/assets/js/27.4c62d15f.js"><link rel="prefetch" href="/assets/js/28.b2b7038e.js"><link rel="prefetch" href="/assets/js/29.280c8b6c.js"><link rel="prefetch" href="/assets/js/3.fd8671fd.js"><link rel="prefetch" href="/assets/js/30.d41c400f.js"><link rel="prefetch" href="/assets/js/31.f7f1421f.js"><link rel="prefetch" href="/assets/js/32.ea544f68.js"><link rel="prefetch" href="/assets/js/33.4c287e3f.js"><link rel="prefetch" href="/assets/js/34.9c22dfe1.js"><link rel="prefetch" href="/assets/js/35.7955a2a2.js"><link rel="prefetch" href="/assets/js/36.9e27692d.js"><link rel="prefetch" href="/assets/js/37.cd3fb862.js"><link rel="prefetch" href="/assets/js/38.90a13e68.js"><link rel="prefetch" href="/assets/js/39.8e2c8dab.js"><link rel="prefetch" href="/assets/js/4.0b2df6d7.js"><link rel="prefetch" href="/assets/js/40.0584b266.js"><link rel="prefetch" href="/assets/js/41.4c729c33.js"><link rel="prefetch" href="/assets/js/42.2ca21f9f.js"><link rel="prefetch" href="/assets/js/43.c8227e91.js"><link rel="prefetch" href="/assets/js/44.bb9bb409.js"><link rel="prefetch" href="/assets/js/45.50e7c63e.js"><link rel="prefetch" href="/assets/js/46.1e83ff35.js"><link rel="prefetch" href="/assets/js/47.1e0701f9.js"><link rel="prefetch" href="/assets/js/48.37496db7.js"><link rel="prefetch" href="/assets/js/49.a05c7f33.js"><link rel="prefetch" href="/assets/js/5.ff2c75a4.js"><link rel="prefetch" href="/assets/js/50.d1be3dd2.js"><link rel="prefetch" href="/assets/js/51.e15e0d64.js"><link rel="prefetch" href="/assets/js/52.478f1116.js"><link rel="prefetch" href="/assets/js/53.1bbeca97.js"><link rel="prefetch" href="/assets/js/54.c102ae76.js"><link rel="prefetch" href="/assets/js/55.a0a57085.js"><link rel="prefetch" href="/assets/js/56.62579112.js"><link rel="prefetch" href="/assets/js/57.dd28f04a.js"><link rel="prefetch" href="/assets/js/58.44f5cdb8.js"><link rel="prefetch" href="/assets/js/59.d6e29ae0.js"><link rel="prefetch" href="/assets/js/6.a104c4e0.js"><link rel="prefetch" href="/assets/js/60.d09c2193.js"><link rel="prefetch" href="/assets/js/61.981b52a2.js"><link rel="prefetch" href="/assets/js/62.896cc8a5.js"><link rel="prefetch" href="/assets/js/63.0fc3646a.js"><link rel="prefetch" href="/assets/js/64.1af63a3b.js"><link rel="prefetch" href="/assets/js/65.583a96bb.js"><link rel="prefetch" href="/assets/js/66.82abef40.js"><link rel="prefetch" href="/assets/js/67.aca00db8.js"><link rel="prefetch" href="/assets/js/68.7091edb1.js"><link rel="prefetch" href="/assets/js/7.661a7c8f.js"><link rel="prefetch" href="/assets/js/70.f6b35794.js"><link rel="prefetch" href="/assets/js/71.2936ba72.js"><link rel="prefetch" href="/assets/js/72.29f2f834.js"><link rel="prefetch" href="/assets/js/73.1965b26a.js"><link rel="prefetch" href="/assets/js/74.665461d8.js"><link rel="prefetch" href="/assets/js/75.a00f7e2e.js"><link rel="prefetch" href="/assets/js/76.6e7ec54a.js"><link rel="prefetch" href="/assets/js/77.79a2c508.js"><link rel="prefetch" href="/assets/js/8.cbcbaa9c.js"><link rel="prefetch" href="/assets/js/9.9cc097c6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9825735b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/blog/img/logo.jpg" alt="一颗牙疼" class="logo"> <span class="site-name can-hide">一颗牙疼</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/01.Java/" class="nav-link">
+  笔记
+</a></div><div class="nav-item"><a href="https://github.com/Atoothache/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/01.Java/" class="nav-link">
+  笔记
+</a></div><div class="nav-item"><a href="https://github.com/Atoothache/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Spring</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据库</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>框架</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>服务器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>脚本语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>模板引擎</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>安全认证</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>搜索引擎</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>杂文</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/15.杂文/@Resource AND @Autowired 真相.html" class="sidebar-link">@Resource AND @Autowired 真相</a></li><li><a href="/15.杂文/ArriyList与HashMap.html" class="sidebar-link">/15.杂文/ArriyList与HashMap.html</a></li><li><a href="/15.杂文/CAP.html" class="sidebar-link">CAP</a></li><li><a href="/15.杂文/Jenkins项目git构建.html" class="sidebar-link">Jenkins项目git构建</a></li><li><a href="/15.杂文/ORACLE字符串为或者NULL的比较.html" class="sidebar-link">ORACLE字符串为或者NULL的比较</a></li><li><a href="/15.杂文/Quartz.html" class="sidebar-link">Quartz</a></li><li><a href="/15.杂文/Shiro.html" class="sidebar-link">Shiro</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/15.杂文/Shiro.html#简介" class="sidebar-link">简介</a></li></ul></li><li><a href="/15.杂文/VMware与主机互通并访问外网.html" class="sidebar-link">VMware虚拟机三种网络模式详解</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/15.杂文/easyui.html" class="sidebar-link">网站推荐</a></li><li><a href="/15.杂文/flyway与exp、imp：.html" class="sidebar-link">/15.杂文/flyway与exp、imp：.html</a></li><li><a href="/15.杂文/mysql数据库如何实现序列.html" class="sidebar-link">mysql数据库如何实现序列</a></li><li><a href="/15.杂文/oracle与Mysql区别.html" class="sidebar-link">/15.杂文/oracle与Mysql区别.html</a></li><li><a href="/15.杂文/springboot2.0整合logback日志(详细).html" class="sidebar-link">springboot2.0整合logback日志(详细)</a></li><li><a href="/15.杂文/vue 组件缓存 router-view 详解.html" class="sidebar-link">vue 组件缓存 router-view 详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/15.杂文/vue 组件缓存 router-view 详解.html#使用方式" class="sidebar-link">使用方式</a></li><li class="sidebar-sub-header"><a href="/15.杂文/vue 组件缓存 router-view 详解.html#问题" class="sidebar-link">问题</a></li><li class="sidebar-sub-header"><a href="/15.杂文/vue 组件缓存 router-view 详解.html#解决" class="sidebar-link">解决</a></li></ul></li><li><a href="/15.杂文/window 安装 rocketmq.html" class="active sidebar-link">window 安装 rocketmq</a></li><li><a href="/15.杂文/一文弄懂 maven 仓库, 仓库优先级, settings pom配置关系及差异.html" class="sidebar-link">/15.杂文/一文弄懂 maven 仓库, 仓库优先级, settings pom配置关系及差异.html</a></li><li><a href="/15.杂文/使用GoogleKaptcha 生成验证码.html" class="sidebar-link">使用GoogleKaptcha 生成验证码</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/15.杂文/博客.html" class="sidebar-link">博客</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/15.杂文/博客.html#为什么你需要一个博客" class="sidebar-link">为什么你需要一个博客？</a></li><li class="sidebar-sub-header"><a href="/15.杂文/博客.html#什么是-vuepress-为什么要使用-vuepress" class="sidebar-link">什么是 VuePress，为什么要使用 VuePress ？</a></li><li class="sidebar-sub-header"><a href="/15.杂文/博客.html#为什么不是" class="sidebar-link">为什么不是...?</a></li></ul></li><li><a href="/15.杂文/数据库的读锁和写锁在业务上的应用场景总结.html" class="sidebar-link">数据库的读锁和写锁在业务上的应用场景总结</a></li><li><a href="/15.杂文/数据库类型.html" class="sidebar-link">varchar和Nvarchar区别</a></li><li><a href="/15.杂文/正向代理yu反向代理.html" class="sidebar-link">nginx 正向代理yu反向代理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/15.杂文/正向代理yu反向代理.html#nginx-正向代理yu反向代理" class="sidebar-link">nginx 正向代理yu反向代理</a></li></ul></li><li><a href="/15.杂文/网站推荐.html" class="sidebar-link">网站推荐</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="window-安装-rocketmq"><a href="#window-安装-rocketmq" class="header-anchor">#</a> window 安装 rocketmq</h1> <p>订阅专栏</p> <p>转载：https://www.cnblogs.com/fanshuyao/p/14760546.html</p> <p><strong>一，下载</strong></p> <p>地址：http://rocketmq.apache.org/release_notes/release-notes-4.3.0/</p> <p><img src="https://img-blog.csdnimg.cn/20210820165655445.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhbmp1bjA2MTI=,size_16,color_FFFFFF,t_70" alt="img"></p> <p><strong>二，系统变量</strong></p> <p><strong>系统变量</strong></p> <div class="language-html extra-class"><pre class="language-html"><code>ROCKETMQ_HOME
+
+
+
+C:\rocketmq-all-4.3.0-bin-release
+
+
+
+ 
+
+
+
+NAMESRV_ADDR
+
+
+
+localhost:9876
+</code></pre></div><p>PATH属性增加：</p> <div class="language-html extra-class"><pre class="language-html"><code>%ROCKETMQ_HOME%\\bin
+</code></pre></div><p>（C:[rocketmq](https://so.csdn.net/so/search?q=rocketmq&amp;spm=1001.2101.3001.7020)-all-4.3.0-bin-release）<strong>路径千万不能有空格！</strong></p> <p><strong>三，启动</strong></p> <p><strong>3、RocketMQ修改日志文件目录</strong>
+（这步可以省略，默认是在用户的目录是，但为了方便，修改日志存放目录）：
+进入目录：</p> <div class="language-html extra-class"><pre class="language-html"><code>D:\\0soft\\rocketmq-all-4.8.0\\conf
+</code></pre></div><p>修改3个xml文件（请先备份）：</p> <div class="language-html extra-class"><pre class="language-html"><code>logback_namesrv.xml
+
+
+
+logback_broker.xml
+
+
+
+logback_tools.xml
+</code></pre></div><p>将所有${user.home}/logs，替换成：D:/0soft/rocketmq-all-4.8.0/logs，具体目录自己定义。</p> <p>最后生成的日志文件在下面的目录：</p> <div class="language-html extra-class"><pre class="language-html"><code>D:\\0soft\\rocketmq-all-4.8.0\\logs\\rocketmqlogs
+</code></pre></div><p><strong>4、RocketMQ修改内存参数，默认的内存太大（记得先备份相应的文件）</strong>
+进入目录：</p> <div class="language-html extra-class"><pre class="language-html"><code>D:\\0soft\\rocketmq-all-4.8.0\\bin
+</code></pre></div><p><strong>修改：runserver.cmd（记得先备份文件）：</strong>
+将：</p> <div class="language-html extra-class"><pre class="language-html"><code>set &quot;JAVA_OPT=%JAVA_OPT% -server -Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m&quot;
+</code></pre></div><p>修改成：</p> <div class="language-html extra-class"><pre class="language-html"><code>set &quot;JAVA_OPT=%JAVA_OPT% -server -Xms128m -Xmx256m -Xmn64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=64m&quot;
+</code></pre></div><p><strong>修改：runbroker.cmd（记得先备份文件）：</strong>
+将：</p> <div class="language-html extra-class"><pre class="language-html"><code>set &quot;JAVA_OPT=%JAVA_OPT% -server -Xms2g -Xmx2g -Xmn1g&quot;
+
+
+
+set &quot;JAVA_OPT=%JAVA_OPT% -XX:MaxDirectMemorySize=15g&quot;
+</code></pre></div><p>修改成：</p> <div class="language-html extra-class"><pre class="language-html"><code>set &quot;JAVA_OPT=%JAVA_OPT% -server -Xms128m -Xmx128m -Xmn64m&quot;
+
+
+
+set &quot;JAVA_OPT=%JAVA_OPT% -XX:MaxDirectMemorySize=1g&quot;
+</code></pre></div><p><strong>5、RocketMQ启动Name Server：</strong>
+打开一个新的cmd命令窗口，并进入到bin目录：</p> <div class="language-html extra-class"><pre class="language-html"><code>D:\\0soft\\rocketmq-all-4.8.0\\bin&gt;mqnamesrv
+</code></pre></div><p>或者（前提是配置Path路径）：</p> <div class="language-html extra-class"><pre class="language-html"><code>mqnamesrv
+</code></pre></div><p>启动结果：</p> <p>D:\0soft\rocketmq-all-4.8.0\bin&gt;mqnamesrv
+Java HotSpot(TM) 64-Bit Server VM warning: Using the DefNew young collector with the CMS collector is deprecated and will likely be removed in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: UseCMSCompactAtFullCollection is deprecated and will likely be removed in a future release.
+The Name Server boot success. serializeType=JSON</p> <p><strong>6、RocketMQ启动：Broker</strong>
+打开一个新的cmd命令窗口，并进入到bin目录：</p> <div class="language-html extra-class"><pre class="language-html"><code>D:\\0soft\\rocketmq-all-4.8.0\\bin&gt;mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true
+</code></pre></div><p>或者（前提是配置Path路径）：</p> <div class="language-html extra-class"><pre class="language-html"><code>mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true
+</code></pre></div><p>启动结果：</p> <p>D:\0soft\rocketmq-all-4.8.0\bin&gt;mqbroker.cmd -n localhost:9876 autoCreateTopicEnable=true
+The broker[XXZX-liqiongy-10, 168.168.2.120:10911] boot success. serializeType=JSON and name server is localhost:9876</p> <p><strong>7、RocketMQ测试发送消息：</strong></p> <p>打开一个新的命令窗口，输入下面的命令：</p> <div class="language-html extra-class"><pre class="language-html"><code>tools.cmd org.apache.rocketmq.example.quickstart.Producer
+</code></pre></div><p>运行结果：
+C:\Users\liqiongy&gt;tools.cmd org.<a href="https://so.csdn.net/so/search?q=apache&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener noreferrer">apache<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.rocketmq.example.quickstart.Producer
+14:52:04.556 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+RocketMQLog:WARN No appenders could be found for logger (io.netty.util.internal.PlatformDependent0).
+RocketMQLog:WARN Please initialize the logger system properly.</p> <p>SendResult [sendStatus=SEND_OK, msgId=7F00000126B80D71636136B05B2003E6, offsetMsgId=A8A8027800002A9F00000000000316F4, messageQueue=MessageQueue [topic=TopicTest, brokerName=XXZX-liqiongy-10, queueId=3], queueOffset=249]
+SendResult [sendStatus=SEND_OK, msgId=7F00000126B80D71636136B05B2103E7, offsetMsgId=A8A8027800002A9F00000000000317BF, messageQueue=MessageQueue [topic=TopicTest, brokerName=XXZX-liqiongy-10, queueId=0], queueOffset=249]</p> <p>14:52:07.337 [NettyClientSelector_1] INFO RocketmqRemoting - closeChannel: close the connection to remote address[168.168.2.120:10911] result: true
+14:52:07.338 [NettyClientSelector_1] INFO RocketmqRemoting - closeChannel: close the connection to remote address[127.0.0.1:9876] result: true</p> <p><strong>8、RocketMQ测试接收消息：</strong></p> <p>打开一个新的命令窗口，输入下面的命令：</p> <div class="language-html extra-class"><pre class="language-html"><code>tools.cmd org.apache.rocketmq.example.quickstart.Consumer
+</code></pre></div><p>运行结果：
+C:\Users\liqiongy&gt;tools.cmd org.apache.rocketmq.example.quickstart.Consumer
+14:54:08.623 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+Consumer Started.</p> <p>ConsumeMessageThread_3 Receive New Messages: [MessageExt [brokerName=XXZX-liqiongy-10, queueId=3, storeSize=201, queueOffset=1, sysFlag=0, bornTimestamp=1620715925363, bornHost=/168.168.2.120:60949, storeTimestamp=1620715925364, storeHost=/168.168.2.120:10911, msgId=A8A8027800002A9F00000000000004B6, commitLogOffset=1206, bodyCRC=1307562618, reconsumeTimes=0, preparedTransactionOffset=0, toString()=Message{topic='TopicTest', flag=0, properties={MIN_OFFSET=0, MAX_OFFSET=250, CONSUME_START_TIME=1620716049251, UNIQ_KEY=7F00000126B80D71636136B053730006, CLUSTER=DefaultCluster, WAIT=true, TAGS=TagA}, body=[72, 101, 108, 108, 111, 32, 82, 111, 99, 107, 101, 116, 77, 81, 32, 54], transactionId='null'}]]
+ConsumeMessageThread_20 Receive New Messages: [MessageExt [brokerName=XXZX-liqiongy-10, queueId=1, storeSize=201, queueOffset=2, sysFlag=0, bornTimestamp=1620715925368, bornHost=/168.168.2.120:60949, storeTimestamp=1620715925369, storeHost=/168.168.2.120:10911, msgId=A8A8027800002A9F0000000000000648, commitLogOffset=1608, bodyCRC=710410109, reconsumeTimes=0, preparedTransactionOffset=0, toString()=Message{topic='TopicTest', flag=0, properties={MIN_OFFSET=0, MAX_OFFSET=250, CONSUME_START_TIME=1620716049253, UNIQ_KEY=7F00000126B80D71636136B053780008, CLUSTER=DefaultCluster, WAIT=true, TAGS=TagA}, body=[72, 101, 108, 108, 111, 32, 82, 111, 99, 107, 101, 116, 77, 81, 32, 56], transactionId='null'}]]</p> <p><strong>9、RocketMQ关闭Servers：</strong></p> <p>开发环境，可以直接关闭cmd命令窗口
+但生产环境不要这样做，而是要打开一个新的命令窗口，分别执行下面的命令：
+先关闭broker，再关闭name server</p> <div class="language-html extra-class"><pre class="language-html"><code>mqshutdown.cmd broker
+
+
+
+mqshutdown.cmd namesrv
+</code></pre></div><p>官方文档见：</p> <div class="language-html extra-class"><pre class="language-html"><code>https://rocketmq.apache.org/docs/quick-start/
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/15.杂文/vue 组件缓存 router-view 详解.html" class="prev">
+        vue 组件缓存 router-view 详解
+      </a></span> <span class="next"><a href="/15.杂文/一文弄懂 maven 仓库, 仓库优先级, settings pom配置关系及差异.html">
+        /15.杂文/一文弄懂 maven 仓库, 仓库优先级, settings pom配置关系及差异.html
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.d4ad695d.js" defer></script><script src="/assets/js/2.fe0fd2e3.js" defer></script><script src="/assets/js/69.b19f42cd.js" defer></script>
+  </body>
+</html>
