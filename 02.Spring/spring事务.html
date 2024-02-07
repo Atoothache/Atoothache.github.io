@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring事务 | 一颗牙疼</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/assets/css/0.styles.9825735b.css" as="style"><link rel="preload" href="/assets/js/app.f1b473bd.js" as="script"><link rel="preload" href="/assets/js/2.fe0fd2e3.js" as="script"><link rel="preload" href="/assets/js/21.ded72680.js" as="script"><link rel="prefetch" href="/assets/js/10.33590986.js"><link rel="prefetch" href="/assets/js/100.f78ba335.js"><link rel="prefetch" href="/assets/js/101.144e6339.js"><link rel="prefetch" href="/assets/js/102.aff501b7.js"><link rel="prefetch" href="/assets/js/103.dce26470.js"><link rel="prefetch" href="/assets/js/104.26548958.js"><link rel="prefetch" href="/assets/js/11.e176da1e.js"><link rel="prefetch" href="/assets/js/12.e17f1dc0.js"><link rel="prefetch" href="/assets/js/13.b24f9ea2.js"><link rel="prefetch" href="/assets/js/14.347b4cb2.js"><link rel="prefetch" href="/assets/js/15.25c18adb.js"><link rel="prefetch" href="/assets/js/16.b82deb5e.js"><link rel="prefetch" href="/assets/js/17.4b8eda5c.js"><link rel="prefetch" href="/assets/js/18.94f035df.js"><link rel="prefetch" href="/assets/js/19.f9f0fb9a.js"><link rel="prefetch" href="/assets/js/20.e0617732.js"><link rel="prefetch" href="/assets/js/22.a7d10053.js"><link rel="prefetch" href="/assets/js/23.2a865452.js"><link rel="prefetch" href="/assets/js/24.78892c84.js"><link rel="prefetch" href="/assets/js/25.754b8f95.js"><link rel="prefetch" href="/assets/js/26.83bff54d.js"><link rel="prefetch" href="/assets/js/27.5f6e1d66.js"><link rel="prefetch" href="/assets/js/28.0d045f90.js"><link rel="prefetch" href="/assets/js/29.df8cae72.js"><link rel="prefetch" href="/assets/js/3.9424d082.js"><link rel="prefetch" href="/assets/js/30.487b6d63.js"><link rel="prefetch" href="/assets/js/31.981a689c.js"><link rel="prefetch" href="/assets/js/32.4054d6a4.js"><link rel="prefetch" href="/assets/js/33.82377f32.js"><link rel="prefetch" href="/assets/js/34.422c6876.js"><link rel="prefetch" href="/assets/js/35.1bd78c05.js"><link rel="prefetch" href="/assets/js/36.763eef96.js"><link rel="prefetch" href="/assets/js/37.b9f362d0.js"><link rel="prefetch" href="/assets/js/38.81fa7d88.js"><link rel="prefetch" href="/assets/js/39.9d65c1ee.js"><link rel="prefetch" href="/assets/js/4.0b2df6d7.js"><link rel="prefetch" href="/assets/js/40.62236695.js"><link rel="prefetch" href="/assets/js/41.5fe37bc2.js"><link rel="prefetch" href="/assets/js/42.0535a0c4.js"><link rel="prefetch" href="/assets/js/43.959d2b22.js"><link rel="prefetch" href="/assets/js/44.4f5d7e45.js"><link rel="prefetch" href="/assets/js/45.95b3c34a.js"><link rel="prefetch" href="/assets/js/46.54a00035.js"><link rel="prefetch" href="/assets/js/47.5dce1505.js"><link rel="prefetch" href="/assets/js/48.02394ae9.js"><link rel="prefetch" href="/assets/js/49.df5ab6b8.js"><link rel="prefetch" href="/assets/js/5.60d4a913.js"><link rel="prefetch" href="/assets/js/50.f23015f8.js"><link rel="prefetch" href="/assets/js/51.3c1268b6.js"><link rel="prefetch" href="/assets/js/52.582990b8.js"><link rel="prefetch" href="/assets/js/53.336d30d8.js"><link rel="prefetch" href="/assets/js/54.382ffa0c.js"><link rel="prefetch" href="/assets/js/55.b022076f.js"><link rel="prefetch" href="/assets/js/56.d648021f.js"><link rel="prefetch" href="/assets/js/57.daee90c0.js"><link rel="prefetch" href="/assets/js/58.1dc75068.js"><link rel="prefetch" href="/assets/js/59.8e0aa66f.js"><link rel="prefetch" href="/assets/js/6.a104c4e0.js"><link rel="prefetch" href="/assets/js/60.5971fa7d.js"><link rel="prefetch" href="/assets/js/61.b5d38972.js"><link rel="prefetch" href="/assets/js/62.479ee1ec.js"><link rel="prefetch" href="/assets/js/63.9288134c.js"><link rel="prefetch" href="/assets/js/64.fd1fa594.js"><link rel="prefetch" href="/assets/js/65.6d7c8876.js"><link rel="prefetch" href="/assets/js/66.12eb7c68.js"><link rel="prefetch" href="/assets/js/67.ec6b9968.js"><link rel="prefetch" href="/assets/js/68.40a7cbed.js"><link rel="prefetch" href="/assets/js/69.1f663e2c.js"><link rel="prefetch" href="/assets/js/7.661a7c8f.js"><link rel="prefetch" href="/assets/js/70.a4b59650.js"><link rel="prefetch" href="/assets/js/71.d0a17b3b.js"><link rel="prefetch" href="/assets/js/72.ce31e327.js"><link rel="prefetch" href="/assets/js/73.689c681b.js"><link rel="prefetch" href="/assets/js/74.c3ee0764.js"><link rel="prefetch" href="/assets/js/75.631b23c2.js"><link rel="prefetch" href="/assets/js/76.5639d6d8.js"><link rel="prefetch" href="/assets/js/77.535d056c.js"><link rel="prefetch" href="/assets/js/78.4a10c037.js"><link rel="prefetch" href="/assets/js/79.1c4b1b82.js"><link rel="prefetch" href="/assets/js/8.cbcbaa9c.js"><link rel="prefetch" href="/assets/js/80.378f84af.js"><link rel="prefetch" href="/assets/js/81.cd50c718.js"><link rel="prefetch" href="/assets/js/82.fa313785.js"><link rel="prefetch" href="/assets/js/83.5a791c98.js"><link rel="prefetch" href="/assets/js/84.9deb80df.js"><link rel="prefetch" href="/assets/js/85.995a3a07.js"><link rel="prefetch" href="/assets/js/86.364d88cb.js"><link rel="prefetch" href="/assets/js/87.20848abb.js"><link rel="prefetch" href="/assets/js/88.b816d218.js"><link rel="prefetch" href="/assets/js/89.6bf9b49e.js"><link rel="prefetch" href="/assets/js/9.bbc07289.js"><link rel="prefetch" href="/assets/js/90.9e0ab005.js"><link rel="prefetch" href="/assets/js/91.5e91a1b3.js"><link rel="prefetch" href="/assets/js/92.64c206ac.js"><link rel="prefetch" href="/assets/js/93.8af7b9b1.js"><link rel="prefetch" href="/assets/js/94.83bb9556.js"><link rel="prefetch" href="/assets/js/95.1690cd1a.js"><link rel="prefetch" href="/assets/js/96.66883dcc.js"><link rel="prefetch" href="/assets/js/97.59f65ae5.js"><link rel="prefetch" href="/assets/js/98.0bf9d181.js"><link rel="prefetch" href="/assets/js/99.0fdea2a2.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9825735b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.jpg" alt="一颗牙疼" class="logo"> <span class="site-name can-hide">一颗牙疼</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/01.Java/" class="nav-link">
+  笔记
+</a></div><div class="nav-item"><a href="https://github.com/Atoothache/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/01.Java/" class="nav-link">
+  笔记
+</a></div><div class="nav-item"><a href="https://github.com/Atoothache/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Spring</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/02.Spring/@Resource AND @Autowired 真相.html" class="sidebar-link">@Resource 与 @Autowired</a></li><li><a href="/02.Spring/SpringMVC拦截器原理.html" class="sidebar-link">SpringMVC 拦截器原理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/02.Spring/SpringSecurity入门原理及实战.html" class="sidebar-link">Spring Security 入门原理及实战</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/02.Spring/SpringSecurity入门原理及实战.html#securitycontext接口" class="sidebar-link">SecurityContext接口</a></li><li class="sidebar-sub-header"><a href="/02.Spring/SpringSecurity入门原理及实战.html#authentication接口又是干嘛的" class="sidebar-link">Authentication接口又是干嘛的？</a></li><li class="sidebar-sub-header"><a href="/02.Spring/SpringSecurity入门原理及实战.html#securitycontextholder工具类" class="sidebar-link">SecurityContextHolder工具类</a></li><li class="sidebar-sub-header"><a href="/02.Spring/SpringSecurity入门原理及实战.html#请求结束-securitycontext存储在哪里" class="sidebar-link">请求结束，SecurityContext存储在哪里？</a></li><li class="sidebar-sub-header"><a href="/02.Spring/SpringSecurity入门原理及实战.html#流程视图" class="sidebar-link">流程视图</a></li><li class="sidebar-sub-header"><a href="/02.Spring/SpringSecurity入门原理及实战.html#securitycontextpersistencefilter拦截器" class="sidebar-link">SecurityContextPersistenceFilter拦截器</a></li></ul></li><li><a href="/02.Spring/Spring核心 - 执行顺序.html" class="sidebar-link">Spring核心 - 执行顺序</a></li><li><a href="/02.Spring/springboot2.0整合logback日志(详细).html" class="sidebar-link">springboot2.0整合logback日志(详细)</a></li><li><a href="/02.Spring/spring事务.html" class="active sidebar-link">Spring事务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/02.Spring/spring事务.html#springmanagedtransaction" class="sidebar-link">SpringManagedTransaction</a></li></ul></li><li><a href="/02.Spring/相关连接.html" class="sidebar-link">相关连接</a></li><li><a href="/02.Spring/静态变量注入bean.html" class="sidebar-link">静态变量注入bean，@Autowire的注入时期</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据库</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>框架</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>服务器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>脚本语言</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>模板引擎</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>安全认证</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>搜索引擎</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Python</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>分布式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>中间件</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Netty</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>杂文</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="spring事务"><a href="#spring事务" class="header-anchor">#</a> Spring事务</h1> <p>一、未开启事务执行流程
+1.每个Mapper接口的执行时（mapper类的方法），调用Mapper自带的sqlsessionTemplate去执行，sqlsessionTemplate调用自身的
+SqlSession sqlSessionProxy（是一个动态代理的类）去执行，所以最终调用SqlSessionInterceptor的invoke方法，先通过getSqlSession获取sqlsession，先从线程threadlocal中获取，获取不到进入sessionFactory.openSession获取，获取到的sqlsession里面有个excutor执行器，里面有个transaction事务，事务里面的connection数据库连接是空的SpringManagedTransaction。excutor执行的时候会去获取连接SpringManagedTransaction.getConnection()：</p> <div class="language-java extra-class"><pre class="language-java"><code>  <span class="token keyword">public</span> <span class="token class-name">Connection</span> <span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">SQLException</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>connection <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connection<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * Gets a connection from Spring transaction manager and discovers if this {@code Transaction} should manage
+   * connection or let it to Spring.
+   * &lt;p&gt;
+   * It also reads autocommit setting because when using Spring Transaction MyBatis thinks that autocommit is always
+   * false and will always call commit/rollback so we need to no-op that calls.
+   */</span>
+  <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">openConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">SQLException</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>connection <span class="token operator">=</span> <span class="token class-name">DataSourceUtils</span><span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>autoCommit <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connection<span class="token punctuation">.</span><span class="token function">getAutoCommit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>isConnectionTransactional <span class="token operator">=</span> <span class="token class-name">DataSourceUtils</span><span class="token punctuation">.</span><span class="token function">isConnectionTransactional</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>connection<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    LOGGER<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token string">&quot;JDBC Connection [&quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>connection <span class="token operator">+</span> <span class="token string">&quot;] will&quot;</span>
+        <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>isConnectionTransactional <span class="token operator">?</span> <span class="token string">&quot; &quot;</span> <span class="token operator">:</span> <span class="token string">&quot; not &quot;</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;be managed by Spring&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>事务获取连接的时候也是根据数据源从threadlocal获取，不过获取不到，然后用数据源新建一个连接返回。</p> <p>每个Mapper都是上面的执行流程</p> <p>二、开启事务:</p> <p>1.@Transactional   的拦截器 TransactionIntercepter</p> <div class="language-java extra-class"><pre class="language-java"><code>	<span class="token comment">//开启事务（新建一个事务，获取一个数据库连接，保存到threadlocal，事务持有这个连接，事务也保存在threadlocal）		</span>
+<span class="token class-name">TransactionInfo</span> txInfo <span class="token operator">=</span> <span class="token function">createTransactionIfNecessary</span><span class="token punctuation">(</span>ptm<span class="token punctuation">,</span> txAttr<span class="token punctuation">,</span> joinpointIdentification<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+			<span class="token class-name">Object</span> retVal<span class="token punctuation">;</span>
+			<span class="token keyword">try</span> <span class="token punctuation">{</span>
+				<span class="token comment">// This is an around advice: Invoke the next interceptor in the chain.</span>
+				<span class="token comment">// This will normally result in a target object being invoked.</span>
+				retVal <span class="token operator">=</span> invocation<span class="token punctuation">.</span><span class="token function">proceedWithInvocation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				<span class="token comment">// target invocation exception</span>
+				<span class="token function">completeTransactionAfterThrowing</span><span class="token punctuation">(</span>txInfo<span class="token punctuation">,</span> ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token keyword">throw</span> ex<span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">finally</span> <span class="token punctuation">{</span>
+				<span class="token function">cleanupTransactionInfo</span><span class="token punctuation">(</span>txInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+</code></pre></div><p>第一个Mapper接口的执行时（mapper类的方法），跟上面一样，只是事务获取连接DataSourceUtils.getConnection的时候也是根据数据源从threadlocal获取，不过这次能取到了。绑定到当前事务中，当前事务绑定在sqlsession中，sqlsession又存到threadlocal中。</p> <p>下一个Mapper接口的执行时，getSqlSession获取sqlsession，先从线程threadlocal中获取，这次能获取到前一个存下来的sqlsession，事务与连接都是同一个。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">SqlSessionInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">InvocationHandler</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">{</span>
+      <span class="token class-name">SqlSession</span> sqlSession <span class="token operator">=</span> <span class="token function">getSqlSession</span><span class="token punctuation">(</span><span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">,</span>
+          <span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>executorType<span class="token punctuation">,</span> <span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>exceptionTranslator<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Object</span> result <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isSqlSessionTransactional</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> <span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">// force commit even on non-dirty sessions because some databases require</span>
+          <span class="token comment">// a commit/rollback before calling close()</span>
+          sqlSession<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Throwable</span> unwrapped <span class="token operator">=</span> <span class="token function">unwrapThrowable</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>exceptionTranslator <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> unwrapped <span class="token keyword">instanceof</span> <span class="token class-name">PersistenceException</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">// release the connection to avoid a deadlock if the translator is no loaded. See issue #22</span>
+          <span class="token function">closeSqlSession</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> <span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          sqlSession <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+          <span class="token class-name">Throwable</span> translated <span class="token operator">=</span> <span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>exceptionTranslator
+              <span class="token punctuation">.</span><span class="token function">translateExceptionIfPossible</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">PersistenceException</span><span class="token punctuation">)</span> unwrapped<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>translated <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            unwrapped <span class="token operator">=</span> translated<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">throw</span> unwrapped<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sqlSession <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">closeSqlSession</span><span class="token punctuation">(</span>sqlSession<span class="token punctuation">,</span> <span class="token class-name">SqlSessionTemplate</span><span class="token punctuation">.</span><span class="token keyword">this</span><span class="token punctuation">.</span>sqlSessionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">SqlSession</span> <span class="token function">getSqlSession</span><span class="token punctuation">(</span><span class="token class-name">SqlSessionFactory</span> sessionFactory<span class="token punctuation">,</span> <span class="token class-name">ExecutorType</span> executorType<span class="token punctuation">,</span>
+      <span class="token class-name">PersistenceExceptionTranslator</span> exceptionTranslator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token function">notNull</span><span class="token punctuation">(</span>sessionFactory<span class="token punctuation">,</span> NO_SQL_SESSION_FACTORY_SPECIFIED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">notNull</span><span class="token punctuation">(</span>executorType<span class="token punctuation">,</span> NO_EXECUTOR_TYPE_SPECIFIED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">SqlSessionHolder</span> holder <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">SqlSessionHolder</span><span class="token punctuation">)</span> <span class="token class-name">TransactionSynchronizationManager</span><span class="token punctuation">.</span><span class="token function">getResource</span><span class="token punctuation">(</span>sessionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">SqlSession</span> session <span class="token operator">=</span> <span class="token function">sessionHolder</span><span class="token punctuation">(</span>executorType<span class="token punctuation">,</span> holder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>session <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> session<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    LOGGER<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token string">&quot;Creating a new SqlSession&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    session <span class="token operator">=</span> sessionFactory<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span>executorType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">registerSessionHolder</span><span class="token punctuation">(</span>sessionFactory<span class="token punctuation">,</span> executorType<span class="token punctuation">,</span> exceptionTranslator<span class="token punctuation">,</span> session<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> session<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+
+<span class="token keyword">private</span> <span class="token class-name">SqlSession</span> <span class="token function">openSessionFromDataSource</span><span class="token punctuation">(</span><span class="token class-name">ExecutorType</span> execType<span class="token punctuation">,</span> <span class="token class-name">TransactionIsolationLevel</span> level<span class="token punctuation">,</span> <span class="token keyword">boolean</span> autoCommit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Transaction</span> tx <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">final</span> <span class="token class-name">Environment</span> environment <span class="token operator">=</span> configuration<span class="token punctuation">.</span><span class="token function">getEnvironment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">final</span> <span class="token class-name">TransactionFactory</span> transactionFactory <span class="token operator">=</span> <span class="token function">getTransactionFactoryFromEnvironment</span><span class="token punctuation">(</span>environment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      tx <span class="token operator">=</span> transactionFactory<span class="token punctuation">.</span><span class="token function">newTransaction</span><span class="token punctuation">(</span>environment<span class="token punctuation">.</span><span class="token function">getDataSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> level<span class="token punctuation">,</span> autoCommit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">final</span> <span class="token class-name">Executor</span> executor <span class="token operator">=</span> configuration<span class="token punctuation">.</span><span class="token function">newExecutor</span><span class="token punctuation">(</span>tx<span class="token punctuation">,</span> execType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DefaultSqlSession</span><span class="token punctuation">(</span>configuration<span class="token punctuation">,</span> executor<span class="token punctuation">,</span> autoCommit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">closeTransaction</span><span class="token punctuation">(</span>tx<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// may have fetched a connection so lets call close()</span>
+      <span class="token keyword">throw</span> <span class="token class-name">ExceptionFactory</span><span class="token punctuation">.</span><span class="token function">wrapException</span><span class="token punctuation">(</span><span class="token string">&quot;Error opening session.  Cause: &quot;</span> <span class="token operator">+</span> e<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+      <span class="token class-name">ErrorContext</span><span class="token punctuation">.</span><span class="token function">instance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h1 id=""><a href="#" class="header-anchor">#</a></h1> <h3 id="mybaits-源码解析-十二-mybatis的事务如何被spring管理-mybatis和spring事务中用的connection是同一个吗"><a href="#mybaits-源码解析-十二-mybatis的事务如何被spring管理-mybatis和spring事务中用的connection是同一个吗" class="header-anchor">#</a> <a href="https://www.cnblogs.com/java-chen-hao/p/11839993.html" target="_blank" rel="noopener noreferrer">Mybaits 源码解析 （十二）----- Mybatis的事务如何被Spring管理？Mybatis和Spring事务中用的Connection是同一个吗？<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <p><strong>目录</strong></p> <ul><li>SpringManagedTransaction
+<ul><li><a href="https://www.cnblogs.com/java-chen-hao/p/11839993.html#_label0_0" target="_blank" rel="noopener noreferrer">org.springframework.jdbc.datasource.DataSourceUtils#getConnection<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://www.cnblogs.com/java-chen-hao/p/11839993.html#_label0_1" target="_blank" rel="noopener noreferrer">org.springframework.transaction.support.TransactionSynchronizationManager#getResource<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul> <p><strong>正文</strong></p> <p>不知道一些同学有没有这种疑问，为什么Mybtis中要配置dataSource，Spring的事务中也要配置dataSource？那么Mybatis和Spring事务中用的Connection是同一个吗？我们常用配置如下</p> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!--会话工厂 --&gt;
+&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!--spring事务管理 --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+  &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!--使用注释事务 --&gt;
+&lt;tx:annotation-driven  transaction-manager=&quot;transactionManager&quot; /&gt;
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p>看到没，<strong>sqlSessionFactory中配置了<strong><strong>dataSource，<strong><strong>transactionManager也配置了</strong></strong>dataSource，我们来回忆一下</strong></strong>SqlSessionFactoryBean这个类</strong></p> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code> 1 protected SqlSessionFactory buildSqlSessionFactory() throws IOException {
+ 2 
+ 3     // 配置类
+ 4    Configuration configuration;
+ 5     // 解析mybatis-Config.xml文件，
+ 6     // 将相关配置信息保存到configuration
+ 7    XMLConfigBuilder xmlConfigBuilder = null;
+ 8    if (this.configuration != null) {
+ 9      configuration = this.configuration;
+10      if (configuration.getVariables() == null) {
+11        configuration.setVariables(this.configurationProperties);
+12      } else if (this.configurationProperties != null) {
+13        configuration.getVariables().putAll(this.configurationProperties);
+14      }
+15     //资源文件不为空
+16    } else if (this.configLocation != null) {
+17      //根据configLocation创建xmlConfigBuilder，XMLConfigBuilder构造器中会创建Configuration对象
+18      xmlConfigBuilder = new XMLConfigBuilder(this.configLocation.getInputStream(), null, this.configurationProperties);
+19      //将XMLConfigBuilder构造器中创建的Configuration对象直接赋值给configuration属性
+20      configuration = xmlConfigBuilder.getConfiguration();
+21    } 
+22    
+23     //略....
+24 
+25    if (xmlConfigBuilder != null) {
+26      try {
+27        //解析mybatis-Config.xml文件，并将相关配置信息保存到configuration
+28        xmlConfigBuilder.parse();
+29        if (LOGGER.isDebugEnabled()) {
+30          LOGGER.debug(&quot;Parsed configuration file: '&quot; + this.configLocation + &quot;'&quot;);
+31        }
+32      } catch (Exception ex) {
+33        throw new NestedIOException(&quot;Failed to parse config resource: &quot; + this.configLocation, ex);
+34      }
+35    }
+36     
+37    if (this.transactionFactory == null) {
+38      //事务默认采用SpringManagedTransaction，这一块非常重要
+39      this.transactionFactory = new SpringManagedTransactionFactory();
+40    }
+41     // 为sqlSessionFactory绑定事务管理器和数据源
+42     // 这样sqlSessionFactory在创建sqlSession的时候可以通过该事务管理器获取jdbc连接，从而执行SQL
+43    configuration.setEnvironment(new Environment(this.environment, this.transactionFactory, this.dataSource));
+44     // 解析mapper.xml
+45    if (!isEmpty(this.mapperLocations)) {
+46      for (Resource mapperLocation : this.mapperLocations) {
+47        if (mapperLocation == null) {
+48          continue;
+49        }
+50        try {
+51          // 解析mapper.xml文件，并注册到configuration对象的mapperRegistry
+52          XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(mapperLocation.getInputStream(),
+53              configuration, mapperLocation.toString(), configuration.getSqlFragments());
+54          xmlMapperBuilder.parse();
+55        } catch (Exception e) {
+56          throw new NestedIOException(&quot;Failed to parse mapping resource: '&quot; + mapperLocation + &quot;'&quot;, e);
+57        } finally {
+58          ErrorContext.instance().reset();
+59        }
+60 
+61        if (LOGGER.isDebugEnabled()) {
+62          LOGGER.debug(&quot;Parsed mapper file: '&quot; + mapperLocation + &quot;'&quot;);
+63        }
+64      }
+65    } else {
+66      if (LOGGER.isDebugEnabled()) {
+67        LOGGER.debug(&quot;Property 'mapperLocations' was not specified or no matching resources found&quot;);
+68      }
+69    }
+70 
+71     // 将Configuration对象实例作为参数，
+72     // 调用sqlSessionFactoryBuilder创建sqlSessionFactory对象实例
+73    return this.sqlSessionFactoryBuilder.build(configuration);
+74 }
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p>我们看第39行，Mybatis集成Spring后，默认使用的transactionFactory是SpringManagedTransactionFactory，那我们就来看看其获取Transaction的方法</p> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code>private SqlSession openSessionFromConnection(ExecutorType execType, Connection connection) {
+    try {
+      boolean autoCommit;
+      try {
+        autoCommit = connection.getAutoCommit();
+      } catch (SQLException e) {
+        // Failover to true, as most poor drivers
+        // or databases won't support transactions
+        autoCommit = true;
+      }      
+      //从configuration中取出environment对象
+      final Environment environment = configuration.getEnvironment();
+      //从environment中取出TransactionFactory
+      final TransactionFactory transactionFactory = getTransactionFactoryFromEnvironment(environment);
+      //创建Transaction
+      final Transaction tx = transactionFactory.newTransaction(connection);
+      //创建包含事务操作的执行器
+      final Executor executor = configuration.newExecutor(tx, execType);
+      //构建包含执行器的SqlSession
+      return new DefaultSqlSession(configuration, executor, autoCommit);
+    } catch (Exception e) {
+      throw ExceptionFactory.wrapException(&quot;Error opening session.  Cause: &quot; + e, e);
+    } finally {
+      ErrorContext.instance().reset();
+    }
+}
+
+private TransactionFactory getTransactionFactoryFromEnvironment(Environment environment) {
+    if (environment == null || environment.getTransactionFactory() == null) {
+      return new ManagedTransactionFactory();
+    }
+    //这里返回SpringManagedTransactionFactory
+    return environment.getTransactionFactory();
+}
+
+@Override
+public Transaction newTransaction(DataSource dataSource, TransactionIsolationLevel level, boolean autoCommit) {
+    //创建SpringManagedTransaction
+    return new SpringManagedTransaction(dataSource);
+}
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p><a href="https://www.cnblogs.com/java-chen-hao/p/11839993.html#_labelTop" target="_blank" rel="noopener noreferrer">回到顶部<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="springmanagedtransaction"><a href="#springmanagedtransaction" class="header-anchor">#</a> SpringManagedTransaction</h2> <p>也就是说mybatis的执行事务的事务管理器就切换成了SpringManagedTransaction，下面我们再去看看SpringManagedTransactionFactory类的源码：</p> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code>public class SpringManagedTransaction implements Transaction {
+    private static final Log LOGGER = LogFactory.getLog(SpringManagedTransaction.class);
+    private final DataSource dataSource;
+    private Connection connection;
+    private boolean isConnectionTransactional;
+    private boolean autoCommit;
+
+    public SpringManagedTransaction(DataSource dataSource) {
+        Assert.notNull(dataSource, &quot;No DataSource specified&quot;);
+        this.dataSource = dataSource;
+    }
+
+    public Connection getConnection() throws SQLException {
+        if (this.connection == null) {
+            this.openConnection();
+        }
+
+        return this.connection;
+    }
+
+    private void openConnection() throws SQLException {
+        //通过DataSourceUtils获取connection，这里和JdbcTransaction不一样
+        this.connection = DataSourceUtils.getConnection(this.dataSource);
+        this.autoCommit = this.connection.getAutoCommit();
+        this.isConnectionTransactional = DataSourceUtils.isConnectionTransactional(this.connection, this.dataSource);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(&quot;JDBC Connection [&quot; + this.connection + &quot;] will&quot; + (this.isConnectionTransactional ? &quot; &quot; : &quot; not &quot;) + &quot;be managed by Spring&quot;);
+        }
+
+    }
+
+    public void commit() throws SQLException {
+        if (this.connection != null &amp;&amp; !this.isConnectionTransactional &amp;&amp; !this.autoCommit) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug(&quot;Committing JDBC Connection [&quot; + this.connection + &quot;]&quot;);
+            }
+            //通过connection提交，这里和JdbcTransaction一样
+            this.connection.commit();
+        }
+
+    }
+
+    public void rollback() throws SQLException {
+        if (this.connection != null &amp;&amp; !this.isConnectionTransactional &amp;&amp; !this.autoCommit) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug(&quot;Rolling back JDBC Connection [&quot; + this.connection + &quot;]&quot;);
+            }
+            //通过connection回滚，这里和JdbcTransaction一样
+            this.connection.rollback();
+        }
+
+    }
+
+    public void close() throws SQLException {
+        DataSourceUtils.releaseConnection(this.connection, this.dataSource);
+    }
+
+    public Integer getTimeout() throws SQLException {
+        ConnectionHolder holder = (ConnectionHolder)TransactionSynchronizationManager.getResource(this.dataSource);
+        return holder != null &amp;&amp; holder.hasTimeout() ? holder.getTimeToLiveInSeconds() : null;
+    }
+}
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <h3 id="org-springframework-jdbc-datasource-datasourceutils-getconnection"><a href="#org-springframework-jdbc-datasource-datasourceutils-getconnection" class="header-anchor">#</a> org.springframework.jdbc.datasource.DataSourceUtils#getConnection</h3> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code>public static Connection getConnection(DataSource dataSource) throws CannotGetJdbcConnectionException {
+    try {
+        return doGetConnection(dataSource);
+    }
+    catch (SQLException ex) {
+        throw new CannotGetJdbcConnectionException(&quot;Could not get JDBC Connection&quot;, ex);
+    }
+}
+
+public static Connection doGetConnection(DataSource dataSource) throws SQLException {
+    Assert.notNull(dataSource, &quot;No DataSource specified&quot;);
+    //TransactionSynchronizationManager重点！！！有没有很熟悉的感觉？？
+    //还记得我们前面Spring事务源码的分析吗？@Transaction会创建Connection，并放入ThreadLocal中
+    //这里从ThreadLocal中获取ConnectionHolder
+    ConnectionHolder conHolder = (ConnectionHolder)TransactionSynchronizationManager.getResource(dataSource);
+    if (conHolder == null || !conHolder.hasConnection() &amp;&amp; !conHolder.isSynchronizedWithTransaction()) {
+        logger.debug(&quot;Fetching JDBC Connection from DataSource&quot;);
+        //如果没有使用@Transaction，那调用Mapper接口方法时，也是通过Spring的方法获取Connection
+        Connection con = fetchConnection(dataSource);
+        if (TransactionSynchronizationManager.isSynchronizationActive()) {
+            logger.debug(&quot;Registering transaction synchronization for JDBC Connection&quot;);
+            ConnectionHolder holderToUse = conHolder;
+            if (conHolder == null) {
+                holderToUse = new ConnectionHolder(con);
+            } else {
+                conHolder.setConnection(con);
+            }
+
+            holderToUse.requested();
+            TransactionSynchronizationManager.registerSynchronization(new DataSourceUtils.ConnectionSynchronization(holderToUse, dataSource));
+            holderToUse.setSynchronizedWithTransaction(true);
+            if (holderToUse != conHolder) {
+                //将获取到的ConnectionHolder放入ThreadLocal中，那么当前线程调用下一个接口，下一个接口使用了Spring事务，那Spring事务也可以直接取到Mybatis创建的Connection
+                //通过ThreadLocal保证了同一线程中Spring事务使用的Connection和Mapper代理类使用的Connection是同一个
+                TransactionSynchronizationManager.bindResource(dataSource, holderToUse);
+            }
+        }
+
+        return con;
+    } else {
+        conHolder.requested();
+        if (!conHolder.hasConnection()) {
+            logger.debug(&quot;Fetching resumed JDBC Connection from DataSource&quot;);
+            conHolder.setConnection(fetchConnection(dataSource));
+        }
+
+        //所以如果我们业务代码使用了@Transaction注解，在Spring中就已经通过dataSource创建了一个Connection并放入ThreadLocal中
+        //那么当Mapper代理对象调用方法时，通过SqlSession的SpringManagedTransaction获取连接时，就直接获取到了当前线程中Spring事务创建的Connection并返回
+        return conHolder.getConnection();
+    }
+}
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p>想看怎么获取connHolder</p> <h3 id="org-springframework-transaction-support-transactionsynchronizationmanager-getresource"><a href="#org-springframework-transaction-support-transactionsynchronizationmanager-getresource" class="header-anchor">#</a> org.springframework.transaction.support.TransactionSynchronizationManager#getResource</h3> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code>//保存数据库连接的ThreadLocal
+private static final ThreadLocal&lt;Map&lt;Object, Object&gt;&gt; resources = new NamedThreadLocal&lt;&gt;(&quot;Transactional resources&quot;);
+@Nullable
+public static Object getResource(Object key) {
+    Object actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);
+    //获取ConnectionHolder
+    Object value = doGetResource(actualKey);
+    ....
+    return value;
+}
+
+@Nullable
+private static Object doGetResource(Object actualKey) {
+    /**
+     * 从threadlocal &lt;Map&lt;Object, Object&gt;&gt;中取出来当前线程绑定的map
+     * map里面存的是&lt;dataSource,ConnectionHolder&gt;
+     */
+    Map&lt;Object, Object&gt; map = resources.get();
+    if (map == null) {
+        return null;
+    }
+    //map中取出来对应dataSource的ConnectionHolder
+    Object value = map.get(actualKey);
+    // Transparently remove ResourceHolder that was marked as void...
+    if (value instanceof ResourceHolder &amp;&amp; ((ResourceHolder) value).isVoid()) {
+        map.remove(actualKey);
+        // Remove entire ThreadLocal if empty...
+        if (map.isEmpty()) {
+            resources.remove();
+        }
+        value = null;
+    }
+    return value;
+}
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p>我们看到直接从ThreadLocal中取出来的conn,而spring自己的事务也是操作的这个ThreadLocal中的conn来进行事务的开启和回滚，由此我们知道了在同一线程中Spring事务中的Connection和Mybaits中Mapper代理对象中操作数据库的Connection是同一个，当取出来的conn为空时候,调用org.springframework.jdbc.datasource.DataSourceUtils#fetchConnection获取，然后把从数据源取出来的连接返回</p> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code>private static Connection fetchConnection(DataSource dataSource) throws SQLException {
+    //从数据源取出来conn
+    Connection con = dataSource.getConnection();
+    if (con == null) {
+        throw new IllegalStateException(&quot;DataSource returned null from getConnection(): &quot; + dataSource);
+    }
+    return con;
+}
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p>我们再来回顾一下上篇文章中的SqlSessionInterceptor</p> <p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <div class="language- extra-class"><pre class="language-text"><code> 1 private class SqlSessionInterceptor implements InvocationHandler {
+ 2     private SqlSessionInterceptor() {
+ 3     }
+ 4 
+ 5     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+ 6         SqlSession sqlSession = SqlSessionUtils.getSqlSession(SqlSessionTemplate.this.sqlSessionFactory, SqlSessionTemplate.this.executorType, SqlSessionTemplate.this.exceptionTranslator);
+ 7 
+ 8         Object unwrapped;
+ 9         try {
+10             Object result = method.invoke(sqlSession, args);
+11             // 如果当前操作没有在一个Spring事务中，则手动commit一下
+12             // 如果当前业务没有使用@Transation,那么每次执行了Mapper接口的方法直接commit
+13             // 还记得我们前面讲的Mybatis的一级缓存吗，这里一级缓存不能起作用了，因为每执行一个Mapper的方法，sqlSession都提交了
+14             // sqlSession提交，会清空一级缓存
+15             if (!SqlSessionUtils.isSqlSessionTransactional(sqlSession, SqlSessionTemplate.this.sqlSessionFactory)) {
+16                 sqlSession.commit(true);
+17             }
+18 
+19             unwrapped = result;
+20         } catch (Throwable var11) {
+21             unwrapped = ExceptionUtil.unwrapThrowable(var11);
+22             if (SqlSessionTemplate.this.exceptionTranslator != null &amp;&amp; unwrapped instanceof PersistenceException) {
+23                 SqlSessionUtils.closeSqlSession(sqlSession, SqlSessionTemplate.this.sqlSessionFactory);
+24                 sqlSession = null;
+25                 Throwable translated = SqlSessionTemplate.this.exceptionTranslator.translateExceptionIfPossible((PersistenceException)unwrapped);
+26                 if (translated != null) {
+27                     unwrapped = translated;
+28                 }
+29             }
+30 
+31             throw (Throwable)unwrapped;
+32         } finally {
+33             if (sqlSession != null) {
+34                 SqlSessionUtils.closeSqlSession(sqlSession, SqlSessionTemplate.this.sqlSessionFactory);
+35             }
+36 
+37         }
+38         return unwrapped;
+39     }
+40 }
+</code></pre></div><p>[<img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码">](javascript:void(0)😉</p> <p>看第15和16行，如果我们没有使用@Transation，Mapper方法执行完后，sqlSession将会提交，也就是说通过org.springframework.jdbc.datasource.DataSourceUtils#fetchConnection获取到的Connection将会commit，相当于Connection是自动提交的，也就是说如果不使用@Transation，Mybatis将没有事务可言。</p> <p>Mybatis和Spring整合后SpringManagedTransaction和Spring的Transaction的关系：</p> <ul><li>如果开启Spring事务，则先有Spring的Transaction，然后mybatis创建sqlSession时，会创建SpringManagedTransaction并加入sqlSession中，SpringManagedTransaction中的connection会从Spring的Transaction创建的Connection并放入ThreadLocal中获取</li> <li>如果没有开启Spring事务或者第一个方法没有事务后面的方法有事务，则SpringManagedTransaction创建Connection并放入ThreadLocal中</li></ul> <p>spring结合mybatis后mybaits一级缓存失效分为两种情况：</p> <ul><li>如果没有开启事务，每一次sql都是用的新的SqlSession，这时mybatis的一级缓存是失效的。</li> <li>如果有事务，同一个事务中相同的查询使用的相同的SqlSessioon，此时一级缓存是生效的。</li></ul> <p>如果使用了@Transation呢？那在调用Mapper代理类的方法之前就已经通过Spring的事务生成了Connection并放入ThreadLocal，并且设置事务不自动提交，当前线程多个Mapper代理对象调用数据库操作方法时，将从ThreadLocal获取Spring创建的connection,在所有的Mapper方法调用完后，Spring事务提交或者回滚，到此mybatis的事务是怎么被spring管理的就显而易见了</p> <p>还有文章开头的问题，为什么Mybtis中要配置dataSource，Spring的事务中也要配置dataSource？</p> <p>因为Spring事务在没调用Mapper方法之前就需要开一个Connection，并设置事务不自动提交，那么transactionManager中自然要配置dataSource。那如果我们的Service没有用到Spring事务呢，难道就不需要获取数据库连接了吗？当然不是，此时通过SpringManagedTransaction调用org.springframework.jdbc.datasource.DataSourceUtils#getConnection#fetchConnection方法获取，并将dataSource作为参数传进去，实际上获取的Connection都是通过dataSource来获取的。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/02.Spring/springboot2.0整合logback日志(详细).html" class="prev">
+        springboot2.0整合logback日志(详细)
+      </a></span> <span class="next"><a href="/02.Spring/相关连接.html">
+        相关连接
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f1b473bd.js" defer></script><script src="/assets/js/2.fe0fd2e3.js" defer></script><script src="/assets/js/21.ded72680.js" defer></script>
+  </body>
+</html>
